@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tienda [
+    <!ELEMENT tienda (producto)>
+    <!ELEMENT producto (#PCDATA)>
+]>
+
+<!-- Dentro del elemento tienda solo puede haber
+     una etiqueta producto -->
+<tienda>
+    <producto>
+        Este es mi producto
+    </producto>
+</tienda>

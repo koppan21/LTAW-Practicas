@@ -1,34 +1,28 @@
 const http = require('http');
 const fs = require('fs');
+const path = require('path');
+const { error } = require('console');
+
 const PUERTO = 9090;
 
-//-- Crear el servidor
+//-- Servidor
 const server = http.createServer((req, res) => {
-    
-  //-- Indicamos que se ha recibido una petición
-  console.log("Petición recibida!");
+  const url = req.url === '/' ? '/tienda.html' : req.url;
+  const filePath = path.join(__dirname, url);
+  const extension = path.extname(filePath);
+  let contentType = 'text/html';
 
-  //-- Cabecera que indica el tipo de datos del
-  //-- cuerpo de la respuesta: Texto plano
-  res.setHeader('Content-Type', 'text/html');
-
-  //-- Mensaje del cuerpo
-  res.write(`
-  <!DOCTYPE html>
-
-<html>
-    <body>
-        <p>Probando</p>
-        <b>Negrita!!</b>
-    </body>
-</html>
-`);
-
-  //-- Terminar la respuesta y enviarla
-  res.end();
+  fs.readFile(filePath, (error, data) => {
+    if (error) {
+      console.log("ERROR")
+      console.log(error.message);
+    } else {
+      res.writeHead(200, { 'Content-Type': contentType });
+      res.end(data, 'utf8');
+    }
+  });
 });
 
-//-- Activar el servidor: ¡Que empiece la fiesta!
+//-- Activar el servidor
 server.listen(PUERTO);
-
 console.log("Tienda server activado!. Escuchando en puerto: " + PUERTO);

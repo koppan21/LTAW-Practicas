@@ -1,0 +1,32 @@
+{
+    "users" : [
+        {
+            "name" : "root"
+        },
+        {
+            "name" : "livin"
+        }
+    ],
+
+    "products" : [
+        {
+            "name" : "perrito",
+            "type" : "animal"
+        },
+        {
+            "name" : "cerdito",
+            "type" : "animal"
+        },
+        {
+            "name" : "gatito",
+            "type" : "animal"
+        }
+    ],
+
+    "orders" : [
+        {
+            "user" : "livin",
+            "amount" : "1"
+        }
+    ]
+}

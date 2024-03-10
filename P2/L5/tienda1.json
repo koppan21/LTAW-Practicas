@@ -11,15 +11,15 @@
     "products" : [
         {
             "name" : "perrito",
-            "type" : "animal"
+            "stock" : "1"
         },
         {
             "name" : "cerdito",
-            "type" : "animal"
+            "stock" : "1"
         },
         {
             "name" : "gatito",
-            "type" : "animal"
+            "stock" : "1"
         }
     ],
 

@@ -16,6 +16,7 @@ const server = http.createServer((req, res) => {
     if (error) {
       console.log("ERROR")
       console.log(error.message);
+      // incluir angry server
     } else {
       res.writeHead(200, { 'Content-Type': contentType });
       res.end(data, 'utf8');

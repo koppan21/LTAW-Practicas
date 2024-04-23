@@ -10,8 +10,6 @@ const PUERTO = 9090;
 const server = http.createServer((req, res) => {
   const url = req.url === '/' ? '/tienda.html' : req.url;
   const filePath = path.join(__dirname, url);
-  const extension = path.extname(filePath);
-  let contentType = 'text/html';
 
   const extname = String(path.extname(filePath)).toLowerCase();
 

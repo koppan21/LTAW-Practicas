@@ -74,6 +74,16 @@ body {
     border-width: 2px;
 }
 
+.selection {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+}
+
+.img2:hover {
+    opacity: 0.5;
+}
+
 .categories {
     display: grid;
     grid-template-columns: repeat(8, 12%);

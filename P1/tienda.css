@@ -23,11 +23,9 @@ body {
 
 .image {
     opacity: 1;
-    display: block;
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 400px;
     padding: 5px;
-    border-radius: 20px;
     transition: .5s ease;
     backface-visibility: hidden;
 }
@@ -35,7 +33,7 @@ body {
 .principales_link {
     background-color: rgba(32, 32, 32, 0.883);
     color: aliceblue;
-    border-radius: 10px;
+    width: 50%;
     font-size: 16px;
     padding: 14px;
     transition: .7s ease;
@@ -65,23 +63,20 @@ body {
     grid-column: 1/ span 3;
 }
 
-.clases {
+.selection {
     padding: 20px;
     width: 100%;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-color: rgba(32, 32, 32, 0.232);
-    border-width: 2px;
+    background-color: rgba(32, 32, 32, 0.05);
 }
 
-.selection {
+.temptations {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2,50%);
 }
 
 .img2:hover {
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
 .categories {
@@ -95,7 +90,7 @@ body {
 }
 
 .categories_link {
-    color: aliceblue;
+    color: white;
     padding: 10px 10px;
     margin: 2px;
     word-wrap: break-word;
@@ -106,6 +101,48 @@ body {
     background-color: rgb(0, 0, 0);
     width: 100%;
     height: 50px;
+}
+
+/* CSS Products */
+.product {
+    width: 70%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+#cart {
+    background-color: rgba(32, 32, 32, 0.883);
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#cart:active {
+    background-color: white;
+    color: rgba(32, 32, 32, 0.883);
+    border: 2px solid rgba(32, 32, 32, 0.883);
+}
+
+#text {
+    font-size: 0.8rem;
+    font-weight: 200;
+    font-style: italic;
+    text-align: justify;
+    border-top-style: solid;
+    border-color: rgba(32, 32, 32, 0.232);
+    border-width: 1px;
+    padding-top: 10px;
+}
+
+.error_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1000px;
 }
 
 @media only screen and (max-width: 600px) {

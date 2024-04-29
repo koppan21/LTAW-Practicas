@@ -11,22 +11,23 @@
     "products" : [
         {
             "name" : "perrito",
-            "stock" : "1"
+            "stock" : 1
         },
         {
             "name" : "cerdito",
-            "stock" : "1"
+            "stock" : 1
         },
         {
             "name" : "gatito",
-            "stock" : "1"
+            "stock" : 1
         }
     ],
 
     "orders" : [
         {
             "user" : "livin",
-            "amount" : "1"
+            "product" : "perrito",
+            "amount" : 1
         }
     ]
 }

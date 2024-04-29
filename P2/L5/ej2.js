@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const FICHERO_JSON = "tienda1.json"
+const FICHERO_JSON = "tienda.json"
 
 const  tienda_json = fs.readFileSync(FICHERO_JSON);
 
@@ -18,5 +18,5 @@ tienda["products"].forEach((element, index)=>{
 
 console.log("Pedidos pendientes: " + tienda["orders"].length);
 tienda["orders"].forEach((element, index)=>{
-  console.log("Pedido " + (index + 1) + ":" + "\n   Cliente:" + element["user"] + "\n   Cantidad:" + element["amount"]);
+  console.log("Pedido " + (index + 1) + ": " + "\n   Cliente: " + element["user"] + "\n   Producto: " + element["product"] + "\n   Cantidad: " + element["amount"]);
 });

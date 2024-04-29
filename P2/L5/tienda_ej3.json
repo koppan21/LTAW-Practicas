@@ -1,0 +1,1 @@
+{"users":[{"name":"root"},{"name":"livin"}],"products":[{"name":"perrito","stock":2},{"name":"cerdito","stock":2},{"name":"gatito","stock":2}],"orders":[{"user":"livin","product":"perrito","amount":1}]}

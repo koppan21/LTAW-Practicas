@@ -5,10 +5,10 @@ const fs = require('fs');
 const PUERTO = 9090;
 
 //-- Cargar pagina web principal
-const MAIN = fs.readFileSync('Ej-01.html','utf-8');
+const MAIN = fs.readFileSync('ej-01.html','utf-8');
 
 //-- Leer fichero JSON con los productos
-const PRODUCTOS_JSON = fs.readFileSync('Ej-01.json');
+const PRODUCTOS_JSON = fs.readFileSync('ej-01.json');
 
 //-- SERVIDOR: Bucle principal de atención a clientes
 const server = http.createServer((req, res) => {

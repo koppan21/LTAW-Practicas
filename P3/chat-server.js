@@ -8,6 +8,8 @@ const app = express();
 const server = http.Server(app);
 const io = socket(server);
 
+let nUsers = 0; // Contador de usuarios
+
 // APLICACION WEB
 app.get('/', (req, res) => {
   res.send('Bienvenido al chat' + '<p><a href="/index.html">Chat</a></p>');
@@ -19,19 +21,43 @@ app.use(express.static('public'));
 // SOCKET
 io.on('connect', (socket) => {
   // Conexión
-  console.log('** NUEVA CONEXIÓN **'.green);
+  nUsers++;
+  console.log('Nuevo usuario conectado'.green);
+  socket.emit('message', 'Bienvenido al chat!');
+  socket.broadcast.emit('message', 'Un nuevo usuario se ha conectado');
   
   // Desconexión
-  socket.on('disconnect', function(){
-    console.log('** CONEXIÓN TERMINADA **'.grey);
+  socket.on('disconnect', ()=>{
+    nUsers--;
+    console.log('Un usuario se ha desconectado'.grey);
+    io.emit('message', 'Un usuario se ha desconectado');
   });  
 
   // Mensaje recibido
-  socket.on("message", (msg)=> {
-    console.log("Mensaje Recibido!: " + msg.blue);
-
-    // Reenviarlo a todos los clientes conectados
-    io.send(msg);
+  socket.on('chatMessage', (msg) => {
+    console.log('Mensaje recibido: ' + msg.blue);
+    if (msg.startsWith('/')) {
+      let response;
+      switch (msg) {
+        case '/help':
+          response = 'Comandos disponibles: /help, /list, /hello, /date';
+          break;
+        case '/list':
+          response = 'Usuarios';
+          break;
+        case '/hello':
+          response = `Usuarios conectados: ${nUsers}`;
+          break;
+        case '/date':
+          response = `Fecha actual: ${new Date().toLocaleString()}`;
+          break;
+        default:
+          response = 'Comando no reconocido';
+      }
+      socket.emit('message', response);
+    } else {
+      io.emit('message',msg);
+    };
   });
   
 });

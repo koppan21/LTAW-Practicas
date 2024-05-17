@@ -9,6 +9,7 @@ const server = http.Server(app);
 const io = socket(server);
 
 let nUsers = 0; // Contador de usuarios
+let users = {};
 
 // APLICACION WEB
 app.get('/', (req, res) => {

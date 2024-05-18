@@ -19,7 +19,7 @@ if (!nickname) {
 
 socket.on('message', (msg)=>{
     notificationSound.play();
-    display.innerHTML += '<p style="color:blue">' + msg + '</p>';
+    display.innerHTML += '<p class="msg">' + msg + '</p>';
 });
 
 // Enviar mensaje al servidor
@@ -32,5 +32,5 @@ msg_entry.onchange = () => {
 };
 
 socket.on('updateUserList', function(users) {
-    userList.innerHTML = 'Usuarios conectados:<br>' + users.join('<br>');
+    userList.innerHTML = users.join('<br>');
 });

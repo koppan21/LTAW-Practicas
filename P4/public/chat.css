@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    color: rgba(32, 32, 32, 0.883);
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    width: 100%;
+}
+
+#chat {
+    background-color: white;
+}
+
+#display {
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 500px;
+    overflow-y: scroll;
+}
+
+#button {
+    padding: 10px;
+}
+
+#user_container {
+    background-color: rgba(151, 151, 151, 0.41);
+    padding: 10px;
+}
+
+.msg {
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(2, 99, 179, 0.698);
+    color: white;
+}

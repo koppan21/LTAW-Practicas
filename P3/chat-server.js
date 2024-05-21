@@ -31,8 +31,8 @@ io.on('connect', (socket) => {
     users[socket.id] = nickname;
     io.emit('updateUserList', Object.values(users));
     console.log(`Nuevo usuario conectado: ${nickname}`.green); 
-    socket.emit('message', `Bienvenido al chat ${nickname}!`);
-    socket.broadcast.emit('message', `${nickname} se ha unido al chat`);
+    socket.emit('message', { text: `Bienvenido al chat ${nickname}!`, server: true });
+    socket.broadcast.emit('message', { text: `${nickname} se ha unido al chat`, server: true });
   });
 
   // Mensaje recibido
@@ -53,7 +53,7 @@ io.on('connect', (socket) => {
             <br> ${Object.values(users)}`;
           break;
         case '/hello':
-          response = 'Hola!';
+          response = `Hola ${users[socket.id]}!`;
           break;
         case '/date':
           response = `Fecha y hora actual: ${new Date().toLocaleString()}`;
@@ -61,16 +61,16 @@ io.on('connect', (socket) => {
         default:
           response = 'Comando no reconocido. Escribe /help para obtener ayuda';
       }
-      socket.emit('message', response);
+      socket.emit('message', { text: response, server: true });
     } else {
-      io.emit('message', `${users[socket.id]}: ${msg}`);
+      io.emit('message', { text: `${users[socket.id]}: ${msg}`, server: false });
     };
   });
 
   // Desconexión
   socket.on('disconnect', () => {
     console.log(`${users[socket.id]} se ha desconectado`.grey);
-    socket.broadcast.emit('message', `${users[socket.id]} se ha desconectado`);
+    socket.broadcast.emit('message', { text: `${users[socket.id]} se ha desconectado`, server: true });
     delete users[socket.id];
     io.emit('updateUserList', Object.values(users));
   });

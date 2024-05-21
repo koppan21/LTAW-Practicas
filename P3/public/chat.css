@@ -45,3 +45,8 @@ body {
     background-color: rgba(2, 99, 179, 0.698);
     color: white;
 }
+
+.msg-server {
+    color: grey;
+    text-align: center;
+}

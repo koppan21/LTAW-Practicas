@@ -13,7 +13,7 @@
     #info {
       margin-bottom: 20px;
     }
-    #messages, #users {
+    #messages {
       border: 1px solid #ccc;
       padding: 10px;
       height: 200px;
@@ -23,26 +23,41 @@
     #input {
       margin-top: 20px;
     }
+    .container {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
   </style>
 </head>
 <body>
   <h1>Chat Server</h1>
-  <div id="info">
-    <p><strong>Version de Node:</strong> <span id="node-version"></span></p>
-    <p><strong>Version de Electron:</strong> <span id="electron-version"></span></p>
-    <p><strong>Version de Chrome:</strong> <span id="chrome-version"></span></p>
-    <p><strong>Server URL:</strong> <span id="server-url"></span></p>
-  </div>
-  <div id="users">
-    <h3>Usuarios conectados</h3>
-    <ul id="user-list"></ul>
-  </div>
-  <div id="messages">
-    <h3>Mensajes</h3>
-    <div id="message-list"></div>
-  </div>
-  <div id="input">
-    <button id="test-button">Send Test Message</button>
+  <div class="container">
+    <div>
+        <div id="info">
+            <h2>Información</h2>
+            <p><strong>Version de Node:</strong> <span id="node-version"></span></p>
+            <p><strong>Version de Electron:</strong> <span id="electron-version"></span></p>
+            <p><strong>Version de Chrome:</strong> <span id="chrome-version"></span></p>
+          </div>
+          <div id="users">
+            <h2>Usuarios conectados</h2>
+            <div id="user-list"></div>
+          </div>
+          <div>
+            <h2>Dirección IP</h2>
+            <p><span id="server-url"></span></p>
+          </div>
+        </div>
+        <div>
+            <div id="input">
+                <h2>Pruebas</h2>
+                <p><button id="test-button">Mensaje de prueba</button></p>
+            </div>
+            <div id="messages">
+                <h2>Mensajes</h2>
+                <div id="message-list"></div>
+            </div>
+        </div>
   </div>
 </body>
 </html>

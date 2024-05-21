@@ -14,7 +14,6 @@ const io = socket(server);
 
 let users = {};
 
-// Función para obtener la dirección IP local
 function getLocalIPAddress() {
   return ip.address();
 }
@@ -62,8 +61,9 @@ ipcMain.handle('get-server-info', (event) => {
 });
 
 ipcMain.handle('test', (event, msg) => {
-  console.log("Mensaje: " + msg);
-  io.emit('message', msg);
+  console.log(msg);
+  io.emit('message', { text: msg, server: true } );
+  win.webContents.send('message', { text: msg, server: true } );
 });
 
 // APLICACION WEB

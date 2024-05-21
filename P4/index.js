@@ -19,16 +19,17 @@ ipcRenderer.on('chatMessage', (event, msg) => {
 // Actualizar lista de usuarios conectados
 ipcRenderer.on('updateUserList', (event, users) => {
     const userList = document.getElementById('user-list');
-    userList.innerHTML = ''; // Clear current list
-    users.forEach(user => {
-    const newUser = document.createElement('li');
-    newUser.innerText = user;
-    userList.appendChild(newUser);
-    });
+    userList.innerHTML = '';
+    const userCount = document.createElement('p');
+      userCount.innerText = `${users.length}`;
+      userList.appendChild(userCount);
 });
 
 // Enviar mensaje de prueba al hacer clic en el botón
 document.getElementById('test-button').addEventListener('click', () => {
-    ipcRenderer.invoke('test', 'Mensaje de prueba desde el server');
-    messageList.appendChild('Mensaje de prueba desde el server');
+    const test_msg = 'Mensaje de prueba desde el server';
+    ipcRenderer.invoke('test', test_msg);
+    const newMessage = document.createElement('p');
+    newMessage.innerText = test_msg;
+    messageList.appendChild(newMessage);
 });

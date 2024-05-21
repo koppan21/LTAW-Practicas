@@ -13,12 +13,12 @@ const io = socket(server);
 let users = {};
 
 // APLICACION WEB
-app.get('/', (req, res) => {
-  res.send('Bienvenido al chat' + '<p><a href="/nickname.html">Chat</a></p>');
-});
 app.use('/', express.static(__dirname +'/'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public','index.html'));
+});
 app.post('/set-nickname', (req, res) => {
   const nickname = req.body.nickname;
   res.redirect(`/chat.html?nickname=${nickname}`);

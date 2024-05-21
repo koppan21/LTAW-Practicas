@@ -28,8 +28,8 @@ app.on('ready', () => {
   console.log("Evento Ready!");
 
   win = new BrowserWindow({
-    width: 600,
-    height: 600,
+    width: 800,
+    height: 700,
     autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,

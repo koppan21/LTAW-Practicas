@@ -1,21 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
 }
-#info {
-    margin-bottom: 20px;
-}
+
 #messages {
-    border: 1px solid #ccc;
+    border: 1px solid rgba(128, 128, 128, 0.336);
     padding: 10px;
-    height: 200px;
+    height: 400px;
     overflow-y: scroll;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
+
 #input {
     margin-top: 20px;
 }
+
 .container {
     display: grid;
     grid-template-columns: 50% 50%;
+}
+
+.container2 {
+    background-color: rgba(128, 128, 128, 0.336);
+    padding: 10px;
+}
+
+.container3 {
+    border-style: solid;
+    border-color: rgba(128, 128, 128, 0.336);
+    padding: 10px;
+}
+
+button {
+    background-color: grey;
+    color: white;
+    border: none;
+    padding: 10px;
 }

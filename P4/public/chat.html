@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chat App</title>
+  <title>Chat</title>
+  <link rel="icon" href="send.ico" type="image/icon">
   
   <!-- Hoja de estilo -->
   <link rel="stylesheet" href="chat.css">
@@ -19,14 +20,17 @@
 <body>
   <div class="container">  
     <div id="user_container">
-      <h3>Usuarios</h3>
+      <h3>Usuarios conectados</h3>
       <div id="userList"></div>
     </div>
     <div id="chat">
       <h2 style="padding: 0 0 0 10px;">Chat General</h2>
       
       <div id="display"></div>
-      <input type="text" placeholder="Escribe aquí los mensajes..." autocomplete="off" id="msg_entry">
+      <div id="send">
+        <input type="text" placeholder="Escribe aquí los mensajes..." autocomplete="off" id="msg_entry">
+        <button type="submit" id="send_button">Enviar</button>
+      </div>
 
       <audio id="notificationSound" src="level-up.mp3" preload="auto"></audio>
     </div>

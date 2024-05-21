@@ -29,6 +29,7 @@ app.on('ready', () => {
   win = new BrowserWindow({
     width: 600,
     height: 600,
+    autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false

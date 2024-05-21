@@ -86,13 +86,6 @@ input {
         width: 90%;
         height: 100%;
     }
-    .container {
-        display: grid;
-        padding-top: 5px;
-        grid-template-columns: 25% 75%;
-        width: 80%;
-        height: 80%;
-    }
 
     #send {
         display: grid;
@@ -100,7 +93,7 @@ input {
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 768px) {
     .container {
         display: grid;
         padding-top: 0px;

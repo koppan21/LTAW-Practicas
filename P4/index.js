@@ -25,6 +25,14 @@ ipcRenderer.on('updateUserList', (event, users) => {
       userList.appendChild(userCount);
 });
 
+//QR
+ipcRenderer.on('qrCodeData', (event, qrCodeData) => {
+    const qrCodeContainer = document.getElementById('qrCodeContainer');
+    const img = document.createElement('img');
+    img.src = qrCodeData;
+    qrCodeContainer.appendChild(img);
+});
+
 // Enviar mensaje de prueba al hacer clic en el botón
 document.getElementById('test-button').addEventListener('click', () => {
     const test_msg = 'Mensaje de prueba desde el server';

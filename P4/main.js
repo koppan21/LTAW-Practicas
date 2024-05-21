@@ -5,7 +5,8 @@ const express = require('express');
 const socket = require('socket.io');
 const colors = require('colors');
 const bodyParser = require('body-parser');
-const ip = require('ip'); // Importa el módulo ip
+const qrcode = require('qrcode');
+const ip = require('ip');
 
 const PORT = 9090;
 const appServer = express();
@@ -47,6 +48,15 @@ app.on('ready', () => {
       port: PORT,
     };
     win.webContents.send('connectionInformation', serverInfo);
+    
+    const urlToQR = `http://${ip.address()}:${PORT}/`;
+    qrcode.toDataURL(urlToQR, (err, qrCodeData) => {
+      if (err) {
+        console.error('Error al generar el QR:', err);
+      } else {
+        win.webContents.send('qrCodeData', qrCodeData);
+      };
+    });
   });
 });
 

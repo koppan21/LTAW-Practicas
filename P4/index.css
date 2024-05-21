@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+#info {
+    margin-bottom: 20px;
+}
+#messages {
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 200px;
+    overflow-y: scroll;
+    margin-bottom: 20px;
+}
+#input {
+    margin-top: 20px;
+}
+.container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}

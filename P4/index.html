@@ -5,29 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chat Server</title>
   <script src="index.js" defer></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    #info {
-      margin-bottom: 20px;
-    }
-    #messages {
-      border: 1px solid #ccc;
-      padding: 10px;
-      height: 200px;
-      overflow-y: scroll;
-      margin-bottom: 20px;
-    }
-    #input {
-      margin-top: 20px;
-    }
-    .container {
-        display: grid;
-        grid-template-columns: 50% 50%;
-    }
-  </style>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
   <h1>Chat Server</h1>
@@ -46,6 +24,7 @@
           <div>
             <h2>Dirección IP</h2>
             <p><span id="server-url"></span></p>
+            <div id="qrCodeContainer"></div>
           </div>
         </div>
         <div>
